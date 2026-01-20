@@ -1,4 +1,4 @@
-# Lab 05: Protección Geográfica con Acceso Condicional
+# 🧪Lab 05: Protección Geográfica con Acceso Condicional
 
 ## 🎯 Objetivo
 Bloquear inicios de sesión desde regiones donde la empresa no opera.
