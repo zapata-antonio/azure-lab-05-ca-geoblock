@@ -1,21 +1,51 @@
 # 🧪Lab 05: Protección Geográfica con Acceso Condicional
 
 ## 🎯 Objetivo
-Bloquear inicios de sesión desde regiones donde la empresa no opera.
+Bloquear inicios de sesión desde regiones donde la empresa no opera mediante Acceso Condicional (CA), validando el impacto con **Solo informe** y confirmando el bloqueo real mediante **Sign-in logs**.
 
 ## 🛠️ Tareas realizadas
-1. Definición de ubicaciones (Named locations).
-2. Política CA de denegación explícita.
-3. Exclusión de cuentas críticas (break-glass).
+1. Creación de una ubicación con nombre (Named location) para países bloqueados.
+2. Creación de directiva CA:
+   - Usuarios: **Todos** (excluyendo cuenta **break-glass**)
+   - Recursos: **Todos los recursos** (antes “Todas las aplicaciones en la nube”)
+   - Condición: **Ubicación** → include `Paises_Bloqueados`
+   - Conceder: **Bloquear acceso**
+3. Validación en **Solo informe** con **What If**.
+4. Activación de la directiva (**Activado**).
+5. Verificación con **Sign-in logs** (bloqueo real por CA).
 
 ## 📸 Evidencias
-- **Named Locations:** (images/01-named-locations.png)
-- **CA Block Access:** (images/02-ca-block.png)
+
+### 01 - Named locations (Paises_Bloqueados)
+[<img src="images/01-named-locations.png" width="800">](images/01-named-locations.png)
+
+### 02 - CA Policy (Solo informe / Report-only)
+[<img src="images/02-ca-report-only.png" width="800">](images/02-ca-report-only.png)
+
+### 02B - CA Location (Include Paises_Bloqueados)
+[<img src="images/02b-location-include-paises_bloqueados.png" width="800">](images/02b-location-include-paises_bloqueados.png)
+
+### 02C - CA Grant (Block Access)
+[<img src="images/02c-grant-block-access.png" width="800">](images/02c-grant-block-access.png)
+
+### 03 - What If (bloqueo evaluado)
+[<img src="images/03-what-if-block.png" width="800">](images/03-what-if-block.png)
+
+### 04 - CA Policy (On)
+[<img src="images/04-ca-on.png" width="800">](images/04-ca-on.png)
+
+### 06 - Sign-in logs (bloqueo real por CA)
+[<img src="images/06-signin-logs-blocked-ca.png" width="800">](images/06-signin-logs-blocked-ca.png)
 
 ## ✅ Checklist de verificación
-- [ ] CA bloquea países definidos
-- [ ] Break-glass excluida
-- [ ] Sign-in logs revisables
+- [ ] `Paises_Bloqueados` creado (Named locations)
+- [ ] Directiva CA creada (All users, excluye break-glass)
+- [ ] Recursos: **Todos los recursos**
+- [ ] Ubicaciones: **Include** `Paises_Bloqueados`
+- [ ] Conceder: **Bloquear acceso**
+- [ ] Validación con **What If** (Solo informe)
+- [ ] Directiva activada (**On**)
+- [ ] Bloqueo real confirmado en **Sign-in logs**
 
 ## 🗣️ Qué le diría al cliente / entrevista
-“Bloquear países de alto riesgo reduce fuerza bruta y ataques automatizados”.
+“Primero despliego el bloqueo geográfico en **Solo informe** para validar impacto sin cortar servicio. Verifico con **What If** que la directiva bloquearía el acceso desde los países definidos, y luego la activo en **On** excluyendo una cuenta **break-glass**. Finalmente, confirmo el comportamiento y la trazabilidad en **Sign-in logs**, donde se registra el bloqueo por Acceso Condicional.”
