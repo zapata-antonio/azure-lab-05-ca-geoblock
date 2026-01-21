@@ -34,18 +34,18 @@ Bloquear inicios de sesión desde regiones donde la empresa no opera mediante Ac
 ### 04 - CA Policy (On)
 [<img src="images/04-ca-on.png" width="800">](images/04-ca-on.png)
 
-### 06 - Sign-in logs (bloqueo real por CA)
-[<img src="images/06-signin-logs-blocked-ca.png" width="800">](images/06-signin-logs-blocked-ca.png)
+### 05 - Sign-in logs (bloqueo real por CA)
+[<img src="images/05-signin-logs-blocked-ca.png" width="800">](images/05-signin-logs-blocked-ca.png)
 
 ## ✅ Checklist de verificación
-- [ ] `Paises_Bloqueados` creado (Named locations)
-- [ ] Directiva CA creada (All users, excluye break-glass)
-- [ ] Recursos: **Todos los recursos**
-- [ ] Ubicaciones: **Include** `Paises_Bloqueados`
-- [ ] Conceder: **Bloquear acceso**
-- [ ] Validación con **What If** (Solo informe)
-- [ ] Directiva activada (**On**)
-- [ ] Bloqueo real confirmado en **Sign-in logs**
+- [x] `Paises_Bloqueados` creado (Named locations)
+- [x] Directiva CA creada (All users, excluye break-glass)
+- [x] Recursos: **Todos los recursos**
+- [x] Ubicaciones: **Include** `Paises_Bloqueados`
+- [x] Conceder: **Bloquear acceso**
+- [x] Validación con **What If** (Solo informe)
+- [x] Directiva activada (**On**)
+- [x] Bloqueo real confirmado en **Sign-in logs**
 
 ## 🗣️ Qué le diría al cliente / entrevista
 “Primero despliego el bloqueo geográfico en **Solo informe** para validar impacto sin cortar servicio. Verifico con **What If** que la directiva bloquearía el acceso desde los países definidos, y luego la activo en **On** excluyendo una cuenta **break-glass**. Finalmente, confirmo el comportamiento y la trazabilidad en **Sign-in logs**, donde se registra el bloqueo por Acceso Condicional.”
