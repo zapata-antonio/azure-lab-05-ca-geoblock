@@ -35,7 +35,7 @@ Bloquear inicios de sesión desde regiones donde la empresa no opera mediante Ac
 [<img src="images/04-ca-on.png" width="800">](images/04-ca-on.png)
 
 ### 05 - Sign-in logs (bloqueo real por CA)
-[<img src="images/05-signin-logs-blocked-ca.png" width="800">](images/05-signin-logs-blocked-ca.png)
+[<img src="images/05-signin-logs-blocked-ca.png" width="800">](images/06-signin-logs-blocked-ca.png)
 
 ## ✅ Checklist de verificación
 - [x] `Paises_Bloqueados` creado (Named locations)
